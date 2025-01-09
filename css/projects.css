@@ -1,0 +1,339 @@
+@import "./reset.css";
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@100;400;500;700&display=swap');
+
+:root {
+    --black: #000000;
+    --black-border: #707174;
+    --white: #fff;
+    --purple: #5C62EC;
+
+    --text-color: var(--black);
+    --dark-bg: var(--black);
+    --dark-border: var(--black-border);
+    --header-text: var(--white);
+    --accent: var(--purple);
+}
+
+.none {
+    display: none !important;
+}
+
+
+html,
+body {
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.5px;
+    color: var(--text-color);
+}
+
+.container {
+    margin: 0 auto;
+    /*внешние по 0, слева и справа авто*/
+    padding: 20px 40px;
+    max-width: 1200px;
+}
+
+
+
+/*Nav*/
+
+.nav {
+    background-color: rgba(17, 17, 17, 0.1); /* Полупрозрачный фон */
+    position: fixed; /* Фиксированное положение, чтобы хедер оставался сверху */
+    width: 100%;
+    height: 50px;
+    backdrop-filter: blur(10px); /* Эффект размытия */
+    -webkit-backdrop-filter: blur(10px); /* Поддержка для WebKit браузеров */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Легкая тень для визуального эффекта */
+    color: var(--header-text);
+    padding: 0 20px;
+}
+
+.nav-row {
+    display: flex;
+    justify-content: space-between; /* Распределяет элементы по краям */
+    align-items: center;
+    width: 100%; /* Убедитесь, что ширина равна 100%, чтобы элементы не сжимались */
+}
+
+.logo {
+    color: var(--header-text);
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    flex-shrink: 0; /* Логотип не сжимается */
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Выравниваем меню по правой стороне */
+    column-gap: 40px;
+   
+    margin: 0;
+    padding: 10px;
+    flex-grow: 1; /* Меню займет оставшееся место */
+}
+
+.nav-list_link {
+    color: var(--header-text);
+    transition: opacity 0.2s ease-in;
+    text-decoration: none;
+}
+
+.nav-list_link:hover {
+    opacity: 0.8;
+}
+
+.nav-list__link--active {
+    position: relative;
+}
+
+.nav-list__link--active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent);
+}
+
+/*Projects*/
+
+.title {
+    border-bottom: 1px solid var(--dark-border);
+    letter-spacing: normal;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffcc00;
+    text-align: left;
+    margin-top: 75px;
+   
+}
+
+.section-subtitle {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #999;
+    text-align: left;
+
+}
+
+.projects{
+    background-color: var(--dark-bg);
+}
+
+.main-projects-grid {
+    margin: 30px 0;
+    display: flex;
+    gap: 25px;
+}
+
+/* Основная карточка проекта */
+.main-project-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #333;
+    transition: transform 0.2s ease;
+    flex: 1; /* Основная карточка занимает 70% */
+    min-width: 280px;
+    animation-delay: 0.7s;
+}
+
+.card-info {
+    
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-date {
+    font-size: 12px;
+    color: var(--white);
+    
+}
+
+.project-title {
+    padding: 15px 10px;
+    color: var(--white);
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffcc00;
+    
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 10px 0;
+    border: 1px solid #333;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover{
+    background: linear-gradient(135deg, #444444, #666666);
+   
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+}
+
+.project-stats {
+    font-size: 12px;
+    color: #999;
+}
+
+.project-description {
+   
+    padding: 5px 10px;
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 2px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Контейнер для остальных карточек */
+.other-project-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive columns */
+    grid-gap: 20px; /* Расстояние между карточками */
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-date, .views {
+    font-size: 14px;
+    color: #999;
+}
+
+.project-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* Медиазапросы для адаптивности */
+
+@media (max-width: 1200px) {
+    .nav-list {
+        gap: 20px;
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .main-projects-grid {
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .main-project-card, .other-project-card {
+        flex: 1 1 100%; /* Карточки занимают всю ширину */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-row {
+        padding: 10px;
+    }
+
+    .nav-list {
+        font-size: 12px;
+        gap: 10px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .main-project-card, .other-project-card {
+        padding: 10px;
+    }
+
+    .main-project-card, .project-card {
+        font-size: 14px;
+    }
+}
+
+/* Ступенчатая задержка появления */
+.project-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+
+.main-project-card:hover{
+    background: linear-gradient(135deg, #444444, #666666);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+}
+
+
+
+
+.project-card,
+.main-project-card {
+    animation: slideInUp 1.3s ease-in-out forwards;
+    opacity: 0;
+}
+
+/* Анимация появления */
+@keyframes slideInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
